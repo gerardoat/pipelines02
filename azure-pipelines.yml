@@ -6,9 +6,5 @@ variables:
   build2: ${{replace(variables['Build.BuildNumber'],'.','-')}}
 
 steps:
-- script: |
-    export IDBUILD=$(build)
-    export ID="${IDBUILD/./-}"
-    $(mivar) = $ID
-    echo "$(build2)"
-- script: echo "Aqui ya no funciona $(build2)"
+- script: echo "Referencia1 $(build2)"
+- bash: echo "Referencia2 $(build2)"
