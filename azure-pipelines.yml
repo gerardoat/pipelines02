@@ -8,3 +8,4 @@ variables:
 steps:
 - script: echo "Referencia1 $(build2)"
 - bash: echo "Referencia2 $(build2)"
+#- task: usar la variable en una task
