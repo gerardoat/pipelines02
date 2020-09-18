@@ -10,7 +10,7 @@ variables:
   resourceGroup: RG-$(resourcesId)
   appServicePlan: SvcPlan-$(resourcesId)
   UriAppPocRandD2: https://$[replace(variables['Build.BuildNumber'],'.','-')].azurewebsites.net
-  UriAppPocRandD: $[format('https://{0}.azurewebsites.net', replace(variables['Build.BuildNumber'],'.','-'))]
+  UriAppPocRandD: $[format('https://AppSvc-{0}.azurewebsites.net', replace(variables['Build.BuildNumber'],'.','-'))]
 
 steps:
 - script: echo $(UriAppPocRandD)
