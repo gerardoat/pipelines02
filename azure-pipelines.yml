@@ -7,4 +7,5 @@ variables:
 steps:
 - bash: |
     export IDBUILD=$(build)
-    echo "${IDBUILD/./-}"
+    export ID="${IDBUILD/./-}"
+    echo $ID
