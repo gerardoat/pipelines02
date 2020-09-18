@@ -3,11 +3,12 @@ pool:
 
 variables:
   build: $(Build.BuildNumber)
+  otro: replace('https://www.tinfoilsecurity.com/saml/consume','https://www.tinfoilsecurity.com','http://server')
 
 steps:
 - script: |
     export IDBUILD=$(build)
     export ID="${IDBUILD/./-}"
     $(mivar) = $ID
-    echo "Aqui si funciona $(mivar)"
+    echo "$(otro)"
 - script: echo "Aqui ya no funciona $(mivar)"
