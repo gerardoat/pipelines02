@@ -5,7 +5,7 @@ variables:
   build: $(Build.BuildNumber)
 
 steps:
-- bash: |
+- script: |
     export IDBUILD=$(build)
     export ID="${IDBUILD/./-}"
     echo "Aqui si funciona $ID"
