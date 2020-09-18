@@ -11,6 +11,6 @@ variables:
   buildIdHyphen: $[replace(variables['Build.BuildNumber'],'.','-')]
 
 steps:
-- script: echo "AppSvs-$(buildIdHyphen)"
-- bash: echo "AppSvs-$(buildIdHyphen)"
+- script: echo AppSvs-$(buildIdHyphen)
+- bash: echo AppSvs-$(buildIdHyphen)
 
