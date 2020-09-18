@@ -2,8 +2,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  build: $(Build.BuildNumber)
-  build2: $[replace(${{ variables.build }},'.','-')]
+  buildConfiguration: 'Release'
+  region: 'southcentralus'
+  buildId: $(Build.BuildNumber)
+  resourcesId: res-$(buildId)
+  resourceGroup: RG-$(resourcesId)
+  appServicePlan: SvcPlan-$(resourcesId)
+  appService: AppSvc-$[replace(variables['Build.BuildNumber'],'.','-')]
 
 steps:
 - script: echo "Referencia1 $(build2)"
