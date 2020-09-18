@@ -4,11 +4,10 @@ pool:
 variables:
   build: $(Build.BuildNumber)
 
-
 steps:
 - script: |
     export IDBUILD=$(build)
     export ID="${IDBUILD/./-}"
-    $MIVAR = $ID
-    echo "Aqui si funciona $MIVAR"
-- script: echo "Aqui ya no funciona $MIVAR"
+    $(mivar) = $ID
+    echo "Aqui si funciona $(mivar)"
+- script: echo "Aqui ya no funciona $(mivar)"
