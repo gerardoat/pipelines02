@@ -8,4 +8,5 @@ steps:
 - bash: |
     export IDBUILD=$(build)
     export ID="${IDBUILD/./-}"
-- script: echo $ID
+    echo "Aqui si funciona $ID"
+- script: echo "Aqui ya no funciona $ID"
