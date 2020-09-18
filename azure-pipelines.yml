@@ -10,27 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  buildConfiguration: 'Release'
+  build: $(Build.BuildNumber)
 
 steps:
-- script: dotnet build src --configuration $(buildConfiguration)
-  displayName: 'Build'
-- task: DotNetCoreCLI@2
-  displayName: 'Create the Publish'
-  inputs:
-    command: publish
-    publishWebProjects: false
-    projects: 'src/PocRandD/PocRandD.csproj'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: true
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifacts'
-- task: AzureRmWebAppDeployment@4
-  displayName: 'Deploy to Azure AppService'
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'SuscripcionMaru'
-    appType: 'webAppLinux'
-    WebAppName: 'pocpipelines'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    RuntimeStack: 'DOTNETCORE|3.1'
+- script: echo $build
+
