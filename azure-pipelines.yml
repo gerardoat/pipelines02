@@ -3,9 +3,9 @@ pool:
 
 variables:
   build: $(Build.BuildNumber)
-  build2: $[replace(variables['Build.BuildNumber'],'.','-')]
+  build2: $[replace(variables['build'],'.','-')]
 
 steps:
 - script: echo "Referencia1 $(build2)"
 - bash: echo "Referencia2 $(build2)"
-#- task: usar la variable en una task
+
