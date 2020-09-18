@@ -5,5 +5,5 @@ variables:
   build: $(Build.BuildNumber)
 
 steps:
-- script: echo ${"$(build)"/./-}
+- script: echo "${$(build)/./-}"
 
