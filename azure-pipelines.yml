@@ -11,6 +11,6 @@ variables:
   appService: AppSvc-$(appServicePlan)
 
 steps:
-- script: echo "Referencia1 $[replace($(appService),'.','-')]"
+- script: echo "Referencia1 $[replace('$(appService)'','.','-')]"
 - bash: echo "Referencia2 $(appService)"
 
