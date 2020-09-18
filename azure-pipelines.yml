@@ -10,5 +10,5 @@ steps:
     export IDBUILD=$(build)
     export ID="${IDBUILD/./-}"
     $MIVAR = $ID
-    sudo echo "Aqui si funciona $MIVAR"
-- script: sudo echo "Aqui ya no funciona $MIVAR"
+    echo "Aqui si funciona $MIVAR"
+- script: echo "Aqui ya no funciona $MIVAR"
