@@ -3,7 +3,7 @@ pool:
 
 variables:
   build: $(Build.BuildNumber)
-  otro: replace('https://www.tinfoilsecurity.com/saml/consume','https://www.tinfoilsecurity.com','http://server')
+  otro: ${{replace('https://www.tinfoilsecurity.com/saml/consume','https://www.tinfoilsecurity.com','http://server')}}
 
 steps:
 - script: |
