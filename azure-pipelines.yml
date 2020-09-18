@@ -8,5 +8,5 @@ steps:
 - script: |
     sudo export IDBUILD=$(build)
     sudo export ID="${IDBUILD/./-}"
-    echo "Aqui si funciona $ID"
-- script: echo "Aqui ya no funciona $ID"
+    sudo echo "Aqui si funciona $ID"
+- script: sudo echo "Aqui ya no funciona $ID"
