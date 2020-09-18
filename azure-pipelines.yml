@@ -11,6 +11,6 @@ variables:
   appService: $[replace(variables['Build.BuildNumber'],'.','-')]
 
 steps:
-- script: echo "Referencia1 $(appService)"
-- bash: echo "Referencia2 $(appService)"
+- script: echo "AppSvs-$(appService)"
+- bash: echo "AppSvs-$(appService)"
 
