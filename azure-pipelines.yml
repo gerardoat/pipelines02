@@ -3,11 +3,12 @@ pool:
 
 variables:
   build: $(Build.BuildNumber)
-  
+
 
 steps:
 - script: |
-    sudo export IDBUILD=$(build)
-    sudo export ID="${IDBUILD/./-}"
-    sudo echo "Aqui si funciona $ID"
-- script: sudo echo "Aqui ya no funciona $ID"
+    export IDBUILD=$(build)
+    export ID="${IDBUILD/./-}"
+    $MIVAR = $ID
+    sudo echo "Aqui si funciona $MIVAR"
+- script: sudo echo "Aqui ya no funciona $MIVAR"
