@@ -6,7 +6,7 @@ variables:
 
 steps:
 - script: |
-    export IDBUILD=$(build)
-    export ID="${IDBUILD/./-}"
+    sudo export IDBUILD=$(build)
+    sudo export ID="${IDBUILD/./-}"
     echo "Aqui si funciona $ID"
 - script: echo "Aqui ya no funciona $ID"
