@@ -3,7 +3,7 @@ pool:
 
 variables:
   build: $(Build.BuildNumber)
-  build2: $[replace(variables.build,'.','-')]
+  build2: $[replace(variables['Build.BuildNumber'],'.','-')]
 
 steps:
 - script: echo "Referencia1 $(build2)"
