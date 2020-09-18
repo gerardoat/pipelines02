@@ -3,7 +3,7 @@ pool:
 
 variables:
   build: $(Build.BuildNumber)
-  build2: ${{replace(Build.BuildNumber,'.','-')}}
+  build2: ${{replace(build,'.','-')}}
 
 steps:
 - script: echo "Referencia1 $(build2)"
