@@ -2,15 +2,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  buildConfiguration: 'Release'
-  region: 'southcentralus'
-  buildId: $(Build.BuildNumber)
-  resourcesId: res-$(buildId)
-  resourceGroup: RG-$(resourcesId)
-  appServicePlan: SvcPlan-$(resourcesId)
-  appService: $[replace(variables['Build.BuildNumber'],'.','-')]
+  build: $(Build.BuildNumber)
+  build2: $[replace(variables['build'],'.','-')]
 
 steps:
-- script: echo "Referencia1 $(appService)"
-- bash: echo "Referencia2 $[replace(variables['Build.BuildNumber'],'.','-')]"
+- script: echo "Referencia1 $(build2)"
+- bash: echo "Referencia2 $(build2)"
 
