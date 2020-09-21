@@ -8,6 +8,9 @@ echo "Root path: $rootPath"
 echo "Test file: $testFile"
 echo "Host: $host"
 
+echo "Permisos para archivo $rootPath/run.sh"
+chmod +x $rootPath/run.sh
+
 T_DIR=.
 
 # Reporting dir: start fresh
