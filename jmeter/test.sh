@@ -50,7 +50,7 @@ echo "===================== Carga de reporte a https://resulttests.blob.core.win
 liReporte="<li><a href='rep/$idReporte/report/index.html'>Build $idReporte</a></li>"
 echo "===================== Actualizando Index con $liReporte"
 ls -l
-echo "$uriReporte" >> ./index.html
+echo "$liReporte" >> ./index.html
 cat ./index.html
 
 echo "===================== Carga de Index"
