@@ -20,3 +20,5 @@ jobs:
     inputs:
       targetPath: jmeter/report
       artifact: jmeter
+  - script: wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy.tar.gz --strip-components=1
+    displayName: 'Installing AzCopy'
