@@ -7,16 +7,25 @@ jobs:
     vmImage: ubuntu-latest
   displayName: Run JMeter tests
   steps:
-  - task: Bash@3
-    displayName: Execute JMeter tests
-    inputs:
-      targetType: filePath
-      filePath: 'jmeter/test.sh'
-      arguments: '$PWD jmeterpocrandd.jmx $(host)'
-      workingDirectory: jmeter
-      failOnStderr: false
-  - task: PublishPipelineArtifact@1
-    displayName: Publish JMeter Report
-    inputs:
-      targetPath: jmeter/report
-      artifact: jmeter
+  # - task: Bash@3
+  #   displayName: Execute JMeter tests
+  #   inputs:
+  #     targetType: filePath
+  #     filePath: 'jmeter/test.sh'
+  #     arguments: '$PWD jmeterpocrandd.jmx $(host)'
+  #     workingDirectory: jmeter
+  #     failOnStderr: false
+  # - task: PublishPipelineArtifact@1
+  #   displayName: Publish JMeter Report
+  #   inputs:
+  #     targetPath: jmeter/report
+  #     artifact: jmeter
+    - task: ApacheJMeterLoadTest@1
+      inputs:
+        #connectedServiceName: # Optional
+        testDrop: 
+        loadTest: 'jmeter/jmeterpocrandd.jmx' 
+        agentCount: '1' # Options: 1, 2, 3, 4, 5
+        runDuration: '60' # Options: 60, 120, 180, 240, 300
+        geoLocation: 'Default' # Optional. Options: default, australia East, australia Southeast, brazil South, central India, central US, east Asia, east US 2, east US, japan East, japan West, north Central US, north Europe, south Central US, south India, southeast Asia, west Europe, west US
+        machineType: '0' # Optional. Options: 0, 2
