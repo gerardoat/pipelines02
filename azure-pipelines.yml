@@ -1,4 +1,5 @@
 variables:
+  buildId: $(Build.BuildNumber)
   host: randapp.azurewebsites.net
 
 jobs:
@@ -12,7 +13,7 @@ jobs:
     inputs:
       targetType: filePath
       filePath: 'jmeter/test.sh'
-      arguments: '$PWD jmeterpocrandd.jmx $(host)'
+      arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
       workingDirectory: jmeter
       failOnStderr: false
   - task: PublishPipelineArtifact@1
