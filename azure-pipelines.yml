@@ -8,17 +8,19 @@ jobs:
     vmImage: ubuntu-latest
   displayName: Run JMeter tests
   steps:
-  - task: Bash@3
-    displayName: Execute JMeter tests
-    inputs:
-      targetType: filePath
-      filePath: 'jmeter/test.sh'
-      arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
-      workingDirectory: jmeter
-      failOnStderr: false
-  - task: PublishPipelineArtifact@1
-    displayName: Publish JMeter Report
-    inputs:
-      targetPath: jmeter/report
-      artifact: jmeter
+    - script: echo "======== parametros $PWD jmeterpocrandd.jmx $(host) $(buildId)"
+      displayName: "Mensaje"
+  # - task: Bash@3
+  #   displayName: Execute JMeter tests
+  #   inputs:
+  #     targetType: filePath
+  #     filePath: 'jmeter/test.sh'
+  #     arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
+  #     workingDirectory: jmeter
+  #     failOnStderr: false
+  # - task: PublishPipelineArtifact@1
+  #   displayName: Publish JMeter Report
+  #   inputs:
+  #     targetPath: jmeter/report
+  #     artifact: jmeter
 
