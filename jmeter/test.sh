@@ -26,12 +26,11 @@ rm -f $T_DIR/test-plan.jtl $T_DIR/jmeter.log  > /dev/null 2>&1
 	-e -o $R_DIR
 
 echo "==== jmeter.log ===="
-# cat $T_DIR/jmeter.log
+ls $T_DIR/jmeter.log
 
 echo "==== Raw Test Report ===="
-cat $T_DIR/test-plan.jtl
+ls $T_DIR/test-plan.jtl
 
 echo "==== HTML Test Report ===="
+ls $R_DIR/index.html
 echo "See HTML test report in $R_DIR/index.html"
-echo "Visualización del archivo de reporte: $R_DIR/index.html"
-cat $R_DIR/index.html"

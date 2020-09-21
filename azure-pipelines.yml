@@ -24,9 +24,9 @@ jobs:
         arguments: '$PWD jmeterpocrandd.jmx $(host)'
         workingDirectory: jmeter
         failOnStderr: true
-    # - task: PublishPipelineArtifact@1
-    #   displayName: Publish JMeter Report
-    #   inputs:
-    #     targetPath: jmeter/report
-    #     artifact: jmeter
+    - task: PublishPipelineArtifact@1
+      displayName: Publish JMeter Report
+      inputs:
+        targetPath: jmeter/report
+        artifact: jmeter
 
