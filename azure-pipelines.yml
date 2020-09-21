@@ -1,32 +1,22 @@
 variables:
-  buildConfiguration: 'Release'
-  region: 'southcentralus'
-  buildId: $(Build.BuildNumber)
-  buildIdHyphen: $[replace(variables['Build.BuildNumber'],'.','-')]
-  resourcesId: res-$(buildId)
-  resourceGroup: RG-$(resourcesId)
-  appServicePlan: SvcPlan-$(resourcesId)
-  UriAppPocRandD2: https://$[replace(variables['Build.BuildNumber'],'.','-')].azurewebsites.net
-  UriAppPocRandD: $[format('https://AppSvc-{0}.azurewebsites.net', replace(variables['Build.BuildNumber'],'.','-'))]
   host: randapp.azurewebsites.net
 
 jobs:
-  - job: jmeter
-    pool:
-      vmImage: ubuntu-latest
-    displayName: Run JMeter tests
-    steps:
-    - task: Bash@3
-      displayName: Execute JMeter tests
-      inputs:
-        targetType: filePath
-        filePath: 'jmeter/test.sh'
-        arguments: '$PWD jmeterpocrandd.jmx $(host)'
-        workingDirectory: jmeter
-        failOnStderr: true
-    - task: PublishPipelineArtifact@1
-      displayName: Publish JMeter Report
-      inputs:
-        targetPath: jmeter/report
-        artifact: jmeter
-
+- job: jmeter
+  pool:
+    vmImage: ubuntu-latest
+  displayName: Run JMeter tests
+  steps:
+  - task: Bash@3
+    displayName: Execute JMeter tests
+    inputs:
+      targetType: filePath
+      filePath: 'jmeter/test.sh'
+      arguments: '$PWD jmeterpocrandd.jmx $(host)'
+      workingDirectory: jmeter
+      failOnStderr: true
+  - task: PublishPipelineArtifact@1
+    displayName: Publish JMeter Report
+    inputs:
+      targetPath: jmeter/report
+      artifact: jmeter
