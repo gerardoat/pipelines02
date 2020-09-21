@@ -1,6 +1,7 @@
 rootPath=$1
 testFile=$2
 host=$3
+nombrereporte=$4
 
 echo "Root path: $rootPath"
 echo "Test file: $testFile"
@@ -37,3 +38,5 @@ ls -l $T_DIR
 
 echo "==== HTML Test Report ===="
 echo "See HTML test report in $R_DIR/index.html"
+
+echo "===================== Carga de reporte a https://resulttests.blob.core.windows.net/%24web/rep/$nombrereporte"
