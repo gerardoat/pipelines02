@@ -1,5 +1,3 @@
-#!/bin/bash
-#
 rootPath=$1
 testFile=$2
 host=$3
@@ -25,15 +23,17 @@ rm -f $T_DIR/test-plan.jtl $T_DIR/jmeter.log  > /dev/null 2>&1
 	-n -t /test/$testFile -l $T_DIR/test-plan.jtl -j $T_DIR/jmeter.log \
 	-e -o $R_DIR
 
-echo "==== LS ===="
+echo "==== LS de $R_DIR ===="
 ls -l $R_DIR
 
-echo "==== jmeter.log ===="
-ls $T_DIR/jmeter.log
+echo "==== LS de $T_DIR ===="
+ls -l $T_DIR
 
-echo "==== Raw Test Report ===="
-ls $T_DIR/test-plan.jtl
+# echo "==== jmeter.log ===="
+# cat $T_DIR/jmeter.log
+
+# echo "==== Raw Test Report ===="
+# cat $T_DIR/test-plan.jtl
 
 echo "==== HTML Test Report ===="
-ls $R_DIR/index.html
 echo "See HTML test report in $R_DIR/index.html"
