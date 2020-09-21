@@ -50,3 +50,5 @@ echo "===================== Carga de reporte a https://resulttests.blob.core.win
 liReporte="<li><a href='rep/$idReporte/report/index.html'>Build $idReporte</a></li>"
 echo "===================== Actualizando Index con $liReporte"
 echo $uriReporte >> ./index.html
+echo "===================== Carga de Index"
+./azcopy copy "./index.html" "https://resulttests.blob.core.windows.net/%24web/index.html?sv=2019-10-10&st=2020-09-20T18%3A38%3A00Z&se=2020-12-31T19%3A38%3A00Z&sr=c&sp=rwl&sig=PA9SPfvV5HeCaSEMR6NL4HCfw%2FWNU%2Fkq5DJVr1DfpS4%3D" --recursive=true
