@@ -14,7 +14,7 @@ jobs:
       filePath: 'jmeter/test.sh'
       arguments: '$PWD jmeterpocrandd.jmx $(host)'
       workingDirectory: jmeter
-      failOnStderr: true
+      failOnStderr: false
   - task: PublishPipelineArtifact@1
     displayName: Publish JMeter Report
     inputs:
