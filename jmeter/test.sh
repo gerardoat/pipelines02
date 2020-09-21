@@ -26,7 +26,7 @@ rm -f $T_DIR/test-plan.jtl $T_DIR/jmeter.log  > /dev/null 2>&1
 	-e -o $R_DIR
 
 echo "==== LS ===="
-ls -l $T_DIR
+ls -l $R_DIR
 
 echo "==== jmeter.log ===="
 ls $T_DIR/jmeter.log
