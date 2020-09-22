@@ -8,12 +8,25 @@ jobs:
     vmImage: ubuntu-latest
   displayName: Run JMeter tests
   steps:
-  - task: Bash@3
-    displayName: Execute JMeter tests
-    inputs:
-      targetType: filePath
-      filePath: 'jmeter/test.sh'
-      arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
-      workingDirectory: jmeter
-      failOnStderr: false
-
+  # - task: Bash@3
+  #   displayName: Execute JMeter tests
+  #   inputs:
+  #     targetType: filePath
+  #     filePath: 'jmeter/test.sh'
+  #     arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
+  #     workingDirectory: jmeter
+  #     failOnStderr: false
+  - script: while true \
+      do \
+        STATUS=$(curl -s -o /dev/null -w '%{http_code}' https://randapp.azurewebsites.net) \
+        if [ $STATUS -eq 200 ]; then \
+          echo "Servicio OK" \
+          break \
+        else \
+          echo "Got $STATUS :( Not done yet..." \
+        fi \
+        sleep 3 \
+      done
+    displayName: "Waiting"
+  - script: echo "Continue..."
+    displayName: "Continue"
