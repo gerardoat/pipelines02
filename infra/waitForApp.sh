@@ -6,10 +6,10 @@ while true
 do
   STATUS=$(curl -s -o /dev/null -w '%{http_code}' $uri)
   if [ $STATUS -eq 200 ]; then
-    echo "Servicio OK"
+    echo "App OK"
     break
   else
-    echo "Got $STATUS :( Not done yet..."
+    echo "App no disponible aún: $STATUS "
   fi
   sleep 3
 done
