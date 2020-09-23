@@ -30,4 +30,4 @@ jobs:
       KeyVaultName: 'keyvaultpocdevops'
       SecretsFilter: 'SonarToken'
       RunAsPreJob: true
-  - script: echo $(SonarToken)
+  - script: echo "el Secret es: $(SonarToken)"
