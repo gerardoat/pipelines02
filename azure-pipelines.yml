@@ -16,11 +16,18 @@ jobs:
   #     arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
   #     workingDirectory: jmeter
   #     failOnStderr: false
-  - task: Bash@3
-    displayName: 'Esperar respuesta de App'
+  # - task: Bash@3
+  #   displayName: 'Esperar respuesta de App'
+  #   inputs:
+  #     targetType: filePath
+  #     filePath: 'infra/waitForApp.sh'
+  #     arguments: 'https://$(host)'
+  #     workingDirectory: infra
+  #     failOnStderr: false
+  - task: AzureKeyVault@1
     inputs:
-      targetType: filePath
-      filePath: 'infra/waitForApp.sh'
-      arguments: 'https://$(host)'
-      workingDirectory: infra
-      failOnStderr: false
+      azureSubscription: 'SuscripcionMaru'
+      KeyVaultName: 'keyvaultpocdevops'
+      SecretsFilter: 'SonarToken'
+      RunAsPreJob: true
+  - script: echo $(SonarToken)
