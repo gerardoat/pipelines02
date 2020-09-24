@@ -37,6 +37,6 @@ jobs:
     inputs:
       targetType: filePath
       filePath: 'infra/tarea.sh'
-      arguments: '$PWD $(SonarToken) $(SasContenedorReportesJMeter)'
+      arguments: '$PWD ElToken$(SonarToken) LaSAS$(SasContenedorReportesJMeter)'
       workingDirectory: infra
       failOnStderr: false
