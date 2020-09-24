@@ -28,6 +28,7 @@ jobs:
     inputs:
       azureSubscription: 'SuscripcionMaru'
       KeyVaultName: 'keyvaultpocdevops'
-      SecretsFilter: 'SonarToken'
+      SecretsFilter: '*'
       RunAsPreJob: true
-  - script: echo "el Secret es: $(SonarToken)"
+  - script: echo $(SonarToken)"
+  - script: echo $(SasContenedorReportesJMeter)"
