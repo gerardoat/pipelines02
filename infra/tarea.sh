@@ -28,10 +28,8 @@ echo "$SASCONTENEDOR" >> ./archivo.txt
 ls -l
 cat ./archivo.txt
 
-echo 
-
 echo "===================== Descarga de AzCopy"
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy.tar.gz --strip-components=1
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy.tar.gz --strip-components=1 > nul
 echo "===================== Carga de Archivo"
 fqdnContenedor="https://resulttests.blob.core.windows.net/%24web"
-./azcopy copy "./archivo.txt" "$fqdnContenedor/index.html?$SASCONTENEDOR" --recursive=true
+./azcopy copy "./archivo.txt" "$fqdnContenedor/archivo.txt?$SASCONTENEDOR" --recursive=true
