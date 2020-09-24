@@ -32,3 +32,11 @@ jobs:
       RunAsPreJob: true
   - script: echo $(SonarToken)
   - script: echo $(SasContenedorReportesJMeter)
+  - task: Bash@3
+    displayName: 'Tarea .sh con parámetros'
+    inputs:
+      targetType: filePath
+      filePath: 'infra/tarea.sh'
+      arguments: '$PWD $(SonarToken) $(SasContenedorReportesJMeter)'
+      workingDirectory: infra
+      failOnStderr: false
