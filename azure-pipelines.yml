@@ -30,5 +30,5 @@ jobs:
       KeyVaultName: 'keyvaultpocdevops'
       SecretsFilter: '*'
       RunAsPreJob: true
-  - script: echo $(SonarToken)"
-  - script: echo $(SasContenedorReportesJMeter)"
+  - script: echo $(SonarToken)
+  - script: echo $(SasContenedorReportesJMeter)
