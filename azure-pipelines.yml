@@ -12,8 +12,8 @@ jobs:
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--results-directory:"$(System.DefaultWorkingDirectory)/resultados" --collect:"XPlat Code Coverage"'
-
+      arguments: '--collect:"XPlat Code Coverage"'
+      workingDirectory: 'src'
     displayName: 'Unit_Tests'
   - task: PublishCodeCoverageResults@1
     inputs:
