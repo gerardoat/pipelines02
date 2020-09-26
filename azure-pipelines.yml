@@ -3,10 +3,9 @@ variables:
   host: randapp.azurewebsites.net
 
 jobs:
-- job: jmeter
+- job: MyJob
   pool:
     vmImage: ubuntu-latest
-  displayName: MyJob
   steps:
   - script: echo 'Build.SourcesDirectory $(Build.SourcesDirectory)'
   - task: DotNetCoreCLI@2
