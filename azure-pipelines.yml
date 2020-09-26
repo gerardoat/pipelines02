@@ -11,7 +11,7 @@ jobs:
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--collect:"XPlat Code Coverage" -r "$(Build.StagingDirectory)/resultado"'
+      arguments: '--collect:"XPlat Code Coverage" --results-directory:"$(Build.StagingDirectory)/resultado"'
     displayName: 'Unit_Tests'
   - script: echo '$(Build.SourcesDirectory)'
   - script: ls -l -r
