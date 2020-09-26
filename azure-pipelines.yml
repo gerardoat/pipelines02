@@ -5,13 +5,12 @@ variables:
 jobs:
 - job: MyJob
   pool:
-    vmImage: ubuntu-latest
+    vmImage: windows-2019
   steps:
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--collect:"XPlat Code Coverage"'
+      arguments: '--collect:"Code Coverage"'
     displayName: 'Unit_Tests'
-  - script: ls -l
 
