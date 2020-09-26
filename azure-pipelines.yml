@@ -11,7 +11,7 @@ jobs:
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--collect:"XPlat Code Coverage"'
+      arguments: '--collect:"XPlat Code Coverage" -r ./TestResults'
     displayName: 'Unit_Tests'
   - script: ls src -l -r
   # - task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
