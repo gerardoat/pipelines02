@@ -12,7 +12,7 @@ jobs:
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--configuration $(BuildConfiguration)  /p:CollectCoverage=true  /p:CoverletOutputFormat=cobertura   /p:CoverletOutput=$(Build.SourcesDirectory)\TestResults\Coverage\'
+      arguments: '--configuration $(BuildConfiguration) --collect:"XPlat Code Coverage"'
     displayName: 'Unit_Tests'
   - script: ls -l $(Build.SourcesDirectory)
 
