@@ -13,7 +13,7 @@ jobs:
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
       arguments: '--collect:"XPlat Code Coverage"'
     displayName: 'Unit_Tests'
-  - script: ls -l -r src/PocRandD.Test
+  - script: ls -l -r
   # - task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
   #   displayName: ReportGenerator
   #   inputs:
