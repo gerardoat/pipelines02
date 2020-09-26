@@ -11,7 +11,7 @@ jobs:
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--collect:"Code Coverage"'
+      arguments: '--collect:"XPlat Code Coverage"'
     displayName: 'Unit_Tests'
   - task: PublishCodeCoverageResults@1
     inputs:
@@ -21,7 +21,7 @@ jobs:
       #reportDirectory: # Optional
       #additionalCodeCoverageFiles: # Optional
       #failIfCoverageEmpty: false # Optional
-  - script: ls -l -R /home/vsts/work/_temp
+  - script: find /home/vsts/work/_temp -name "coverage.cobertura.xml"
   # - task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
   #   displayName: ReportGenerator
   #   inputs:
