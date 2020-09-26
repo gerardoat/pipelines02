@@ -7,11 +7,13 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
+  - script: echo '$(System.DefaultWorkingDirectory)'
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--collect:"XPlat Code Coverage"'
+      arguments: '--results-directory:"./resultados" --collect:"XPlat Code Coverage"'
+
     displayName: 'Unit_Tests'
   - task: PublishCodeCoverageResults@1
     inputs:
