@@ -6,43 +6,14 @@ jobs:
 - job: jmeter
   pool:
     vmImage: ubuntu-latest
-  displayName: Run JMeter tests
+  displayName: MyJob
   steps:
-  # - task: Bash@3
-  #   displayName: Execute JMeter tests
-  #   inputs:
-  #     targetType: filePath
-  #     filePath: 'jmeter/test.sh'
-  #     arguments: '$PWD jmeterpocrandd.jmx $(host) $(buildId)'
-  #     workingDirectory: jmeter
-  #     failOnStderr: false
-  # - task: Bash@3
-  #   displayName: 'Esperar respuesta de App'
-  #   inputs:
-  #     targetType: filePath
-  #     filePath: 'infra/waitForApp.sh'
-  #     arguments: 'https://$(host)'
-  #     workingDirectory: infra
-  #     failOnStderr: false
-  - task: AzureKeyVault@1
+  - script: echo 'Build.SourcesDirectory $(Build.SourcesDirectory)'
+  - task: DotNetCoreCLI@2
     inputs:
-      azureSubscription: 'SuscripcionMaru'
-      KeyVaultName: 'keyvaultpocdevops'
-      SecretsFilter: '*'
-      RunAsPreJob: true
-  - script: echo $(SonarToken)
-  - script: echo $(SasContenedorReportesJMeter)
-  - task: Bash@3
-    displayName: 'Tarea .sh con parámetros'
-    inputs:
-      targetType: filePath
-      filePath: 'infra/tarea.sh'
-      arguments: '$(UnSecret) $(OtroSecret) $MYVAR1 $(SasContenedorReportesJMeter)'
-      workingDirectory: infra
-      failOnStderr: false
-    env:
-      SONARTOKEN: $(SonarToken)
-      UNSECRET: $(UnSecret)
-      OTROSECRET: $(OtroSecret)
-      SASCONTENEDORB64: $(SasContenedorReportesJMeterB64)
-      
+      command: 'test'
+      projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
+      arguments: '--configuration $(BuildConfiguration)  /p:CollectCoverage=true  /p:CoverletOutputFormat=cobertura   /p:CoverletOutput=$(Build.SourcesDirectory)\TestResults\Coverage\'
+    displayName: 'Unit_Tests'
+  - script: ls -l $(Build.SourcesDirectory)
+
