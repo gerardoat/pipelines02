@@ -21,8 +21,7 @@ jobs:
       #reportDirectory: # Optional
       #additionalCodeCoverageFiles: # Optional
       #failIfCoverageEmpty: false # Optional
-  - script: echo '$(Build.SourcesDirectory)'
-  - script: ls -l -r
+  - script: ls -l -r /home/vsts/work/_temp
   # - task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
   #   displayName: ReportGenerator
   #   inputs:
