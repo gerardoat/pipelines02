@@ -7,12 +7,11 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - script: echo 'Build.SourcesDirectory $(Build.SourcesDirectory)'
   - task: DotNetCoreCLI@2
     inputs:
       command: 'test'
       projects: 'src/PocRandD.Test/PocRandD.Test.csproj'
-      arguments: '--configuration $(BuildConfiguration) --collect:"XPlat Code Coverage"'
+      arguments: '--collect:"XPlat Code Coverage"'
     displayName: 'Unit_Tests'
-  - script: ls -l $(Build.SourcesDirectory)
+  - script: ls -l
 
